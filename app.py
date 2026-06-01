@@ -104,10 +104,7 @@ def actualizar_videojuego(
         if videojuego["id"] == id:
             videojuego.update(videojuego_actualizado)
 
-            return {
-                "mensaje": "Videojuego actualizado",
-                "videojuego": videojuego
-            }
+            return videojuego
 
     raise HTTPException(status_code=404, detail="Videojuego no encontrado")
 
@@ -122,9 +119,6 @@ def eliminar_videojuego(
     for videojuego in videojuegos:
         if videojuego["id"] == id:
             videojuegos.remove(videojuego)
-
-            return {
-                "mensaje": "Videojuego eliminado"
-            }
+            return videojuego
 
     raise HTTPException(status_code=404, detail="Videojuego no encontrado")
